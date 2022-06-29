@@ -1,0 +1,12 @@
+<?php $_shouldextend[1]=1; ?>
+<?php $this->startSection('title', 'Home'); ?>
+ 
+<?php $this->startSection('content'); ?>
+<h4 class="text-danger">Test 1: Capture the following into the database</h4>
+
+
+<?php $this->stopSection(); ?>
+
+
+
+<?php if (isset($_shouldextend[1])) { echo $this->runChild('layout.base'); } ?>

@@ -1,0 +1,29 @@
+{
+    "name": "mhlun/devprox",
+    "description": "Proficiency Test",
+    "autoload": {
+        "psr-4": {
+            "App\\": "app"
+        },
+        "files": ["app/functions/helper.php"]
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "allow-plugins": {
+            "kylekatarnls/update-helper": true
+        }
+    },
+    "authors": [
+        {
+            "name": "mhlunguep",
+            "email": "mhlunguep@gmail.com"
+        }
+    ],
+    "require": {
+        "vlucas/phpdotenv": "^5.4",
+        "altorouter/altorouter": "^2.0",        
+        "illuminate/database": "^9.17",
+        "eftec/bladeone": "^4.5",
+        "nesbot/carbon": "^2.58"
+    }
+}

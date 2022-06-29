@@ -1,0 +1,14 @@
+APP_URL = http://devprox.test
+APP_ENV = local
+APP_NAME = "Devprox"
+
+
+#database details 
+DB_DRIVER = 'mysql'
+DB_HOST = localhost
+DB_NAME = database name 
+DB_USERNAME = your username 
+DB_PASSWORD = your password
+
+
+
