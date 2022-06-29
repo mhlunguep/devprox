@@ -1,1 +1,0 @@
-<h2>Page not found from views</h2>
