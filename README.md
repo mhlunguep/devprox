@@ -11,5 +11,12 @@
 ### Use your terminal to run
 	1. composer update 
 	2. npm update
+
+### Now let's set up your database
+1. Go to your phpmyadmin and create a database name, username, and password
+2. On the root folder of this project, look for .env example rename this file to .env
+3. Open it and update with the details you created on your phpmyadmin
+4. Import the sql table on the database you have created, you can find it on resources/assets/sql
+
 #### The project is now ready
 On your browser type http://devprox.test/
