@@ -28,7 +28,7 @@
 					<div class="row mb-4">
 						<div class="col mb-4">
 							<label class="form-label" for="customFile">Upload CSV File</label>
-							<input type="file" class="form-control" name="file"/>
+							<input type="file" class="form-control" required name="file"/>
 
 							<input type="hidden" name="token" value="{{ App\Classes\CSRFToken::_token() }}">
 							<button type="submit" name="submit" class="btn btn-dark btn-block btn-rounded mt-2">Submit</button>
