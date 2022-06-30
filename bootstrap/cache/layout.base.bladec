@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<?php echo $this->runChild('includes.head'); ?>
+
+<body>
+ <?php echo $this->runChild('includes.header'); ?>
+ <?php echo $this->runChild('includes.sidebar'); ?> 
+ 
+ <div class="container" style="margin:90px 250px">
+ <?php echo $this->yieldContent('content'); ?>
+ </div>
+ 
+ <script src = "/js/script.js"></script>
+</body>
+</html>
