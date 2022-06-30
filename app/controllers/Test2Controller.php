@@ -131,16 +131,49 @@ class Test2Controller extends BaseController
                     // Parse data from CSV file line by line
                     while (($getData = fgetcsv($csvFile, 10000, ",")) !== false) {
                         
-                       //Insert data
-                        $alldata = "INSERT INTO `csv_import` (id_no, name, surname, initials, age, birthday) 
+                    //The SQL query.
+                    $sql = "SELECT COUNT(*) AS num FROM `csv_import` WHERE id_no = :id_no";
+
+                    //Prepare the SQL statement.
+                    $stmt = $pdo->prepare($sql);
+                       
+                    //Bind our id_no value to the :id_no parameter.
+                    $stmt->bindValue(':id_no', $getData[0]);
+
+                    //Execute the statement.
+                    $stmt->execute();
+                    
+                    //Fetch the row / result.
+                    $row = $stmt->fetch();
+
+                    //If num is bigger than 0, the id_no already exists.
+                    if($row['num'] > 0){
+
+                        $sql = "UPDATE csv_import SET name=:name, surname=:surname, initials=:initials, 
+                        age=:age, birthday=:birthday WHERE id_no=:id_no";
+                        $stmt= $pdo->prepare($sql);
+                        $stmt->bindValue(':id_no', $getData[0]);
+                        $stmt->bindValue(':name', $getData[1]);
+                        $stmt->bindValue(':surname', $getData[2]);
+                        $stmt->bindValue(':initials', $getData[3]);
+                        $stmt->bindValue(':age', $getData[4]);
+                        $stmt->bindValue(':birthday', $getData[5]);
+                        $stmt->execute();
+                        $rows = $stmt->rowCount();
+
+                    } else{
+                        //Insert data
+                        $stmt = "INSERT INTO `csv_import` (id_no, name, surname, initials, age, birthday) 
                         VALUES ('$getData[0]', '$getData[1]', '$getData[2]','$getData[3]','$getData[4]','$getData[5]')";
-                        $pdo->exec($alldata);
+                        $stmt = $pdo->exec($stmt);
+                        $rows .= $stmt->rowCount();    
                     }
-                    $rowid = $pdo->lastInsertId();
+                    
+                    }
                     Request::refresh();
                  
                  return view('test2.csvform', [
-                     'success' => 'Csv file imported Successfully with '.$rowid. ' rows'
+                     'success' => 'Csv file imported successfully with '.$rows. ' rows affected'
                  ]);
                 
                     // Close opened CSV file
