@@ -23,7 +23,7 @@ function random_data($number)
     'Simpson', 'Walker', 'Cunningham', 'Zwane', 'Khuzwayo', 'Zuma',
     'Johnson', 'Ramaphosa', 'Mercado', 'Ronaldo', 'Messi', 'Peltier', 'Sellers'];
     
-    for($i = 1; $i <= $number; $i++){
+    for($i = 1; $i <= $number+1; $i++){
         // Generate a random name
         $random_name = $names[mt_rand(0, sizeof($names) - 1)];
           
