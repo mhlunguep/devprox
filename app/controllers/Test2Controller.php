@@ -41,7 +41,7 @@ class Test2Controller extends BaseController
                 }
 
                 // call a function that returns random data array
-                $data = random_data($request->number + 1);
+                $data = random_data($request->number);
 
                 $count = 0;
 
@@ -65,7 +65,7 @@ class Test2Controller extends BaseController
                     } else {
                         unset($data);
                         $count++;
-                        $data = random_data($request->number + 1);
+                        $data = random_data($request->number);
                     }
                 } while ($count > 0);
 
