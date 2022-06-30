@@ -1,6 +1,6 @@
 
 # Devprox: PHP Developer e-commerce platform Skills Assessment
-### To set up this project on your local match you will need the following:
+### To set up this project on your local machine you will need to do the following:
 1.	Composer, you don’t have it you can download it here https://getcomposer.org/
 2.	Latest version of  Node Js https://nodejs.org/en/ , LTS will do.
 3.	PHP local server, I use XAMPP but you can use any i.e WAMP as long as you have PHP 8.1.6 and Apache 
@@ -16,7 +16,8 @@ a.	Open this file and update the #database details section to match what you hav
 i.	DB_NAME = database name 
 ii.	DB_USERNAME = your username 
 iii.	DB_PASSWORD = your password
-###	8.	Now open this project with your text editor and run the following commands
+8. 	There's an a copy of htaccess on the root of public folder rename this to .htaccess
+###	9.	Now open this project with your text editor and run the following commands
 			a.	Composer update
 			b.	Npm install
-9.	View this project on the browser
+10.	View this project on the browser
