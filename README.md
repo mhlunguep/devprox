@@ -11,12 +11,12 @@ a.	Your virtual server must point to the public folder of of this project i.e �
 a.	Create a database name i.e devprox
 b.	Open the project files, go to resources/assets/sql
 c.	Import those empty tables to your database you have created. 
-7.	Go back to the files on the root folder of the project look for the .env example rename so that it reads .env without ‘example’
+7.	Go back to the files on the root folder of the project look for the "env example" rename so that it reads .env without ‘example’
 a.	Open this file and update the #database details section to match what you have created in step 6
 i.	DB_NAME = database name 
 ii.	DB_USERNAME = your username 
 iii.	DB_PASSWORD = your password
 ###	8.	Now open this project with your text editor and run the following commands
-				a.	Composer update
-				b.	Npm install
+			a.	Composer update
+			b.	Npm install
 9.	View this project on the browser
