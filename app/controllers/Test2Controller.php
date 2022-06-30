@@ -159,21 +159,29 @@ class Test2Controller extends BaseController
                         $stmt->bindValue(':age', $getData[4]);
                         $stmt->bindValue(':birthday', $getData[5]);
                         $stmt->execute();
-                        $rows = $stmt->rowCount();
-
+                        
                     } else{
                         //Insert data
                         $stmt = "INSERT INTO `csv_import` (id_no, name, surname, initials, age, birthday) 
-                        VALUES ('$getData[0]', '$getData[1]', '$getData[2]','$getData[3]','$getData[4]','$getData[5]')";
-                        $stmt = $pdo->exec($stmt);
-                        $rows .= $stmt->rowCount();    
+                        VALUES ('id_no=:id_no', 'name=:name', 'surname=:surname','initials=:initials','
+                                age=:age','birthday=:birthday')";
+                        $stmt= $pdo->prepare($sql);
+                        $stmt->bindValue(':id_no', $getData[0]);
+                        $stmt->bindValue(':name', $getData[1]);
+                        $stmt->bindValue(':surname', $getData[2]);
+                        $stmt->bindValue(':initials', $getData[3]);
+                        $stmt->bindValue(':age', $getData[4]);
+                        $stmt->bindValue(':birthday', $getData[5]);
+                        $stmt->execute();
+                        
                     }
                     
                     }
+                    $rows = $stmt->rowCount();; 
                     Request::refresh();
                  
                  return view('test2.csvform', [
-                     'success' => 'Csv file imported successfully with '.$rows. ' rows affected'
+                     'success' => 'Csv file imported successfully '. $rows . ' rows affected'
                  ]);
                 
                     // Close opened CSV file
